@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Samiya Eshetu Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #efefef;
+      }
+
+      .signature {
+        font-family: "Great Vibes", cursive;
+      }
+
+      .hero-word {
+        font-size: clamp(7rem, 20vw, 20rem);
+        line-height: 0.8;
+        margin-bottom: 50px;
+      }
+
+      .fade-up {
+        animation: fadeUp 1.2s ease forwards;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: #ef4444;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-[#efefef]/80 backdrop-blur-sm border-b border-gray-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center"
+      >
+        <a href="#" class="font-bold text-xl"> Samiya Eshetu </a>
+
+        <div class="hidden md:flex gap-10">
+          <a href="index.html" class="nav-link"> Home </a>
+
+          <a href="about.html" class="nav-link"> About </a>
+
+          <a href="projects.html" class="nav-link"> Projects </a>
+
+          <a href="resume.html" class="nav-link"> Resume </a>
+
+          <a href="contact.html" class="nav-link"> Contact </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section
+      class="min-h-screen flex flex-col justify-center px-8 md:px-16 pt-32"
+    >
+      <div class="fade-up">
+<div class="mb-24">
+  <p class="uppercase tracking-[0.4em] text-sm text-gray-600">
+    Web Developer Portfolio
+  </p>
+</div>
+
+        <div class="relative mt-10">
+          <h1 class="hero-word font-black text-black select-none">portfolio</h1>
+
+          <div
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            <h2
+              class="signature text-red-500 text-5xl md:text-8xl whitespace-nowrap"
+            >
+              Samiya Eshetu
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-10"
+        >
+          <div>
+            <h2 class="text-3xl md:text-5xl font-bold">Web Developer</h2>
+
+            <p class="text-gray-600 mt-3 text-lg">Computer Science Graduate</p>
+
+            <p class="text-gray-500 mt-8 max-w-xl leading-relaxed">
+              I build responsive websites and web applications using HTML, CSS,
+              JavaScript, Tailwind CSS, Bootstrap, PHP and MySQL while
+              continuously learning modern web technologies.
+            </p>
+          </div>
+
+
+            <span class="group-hover:translate-x-2 transition"> → </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="border-t border-gray-300">
+      <div class="max-w-7xl mx-auto px-8 md:px-16 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-700">
+          <div>
+            <p class="font-semibold mb-2">Location</p>
+            <p>Addis Ababa, Ethiopia</p>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Email</p>
+            <p>samiyaeshetu@email.com</p>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">GitHub</p>
+            <p>github.com/samiya-eshetu</p>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">LinkedIn</p>
+            <p>linkedin.com/in/samiya-eshetu</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
