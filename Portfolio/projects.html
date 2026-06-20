@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,7 +24,7 @@
       }
 
       .section-title {
-        font-size: clamp(2rem, 6vw, 5rem);
+        font-size: clamp(2.5rem, 6vw, 5rem);
         line-height: 0.9;
         font-weight: 900;
       }
@@ -58,60 +59,51 @@
   </head>
 
   <body>
-    <!-- NAV -->
+    <!-- NAVBAR -->
 
-<nav
-  class="sticky top-0 bg-[#efefef]/90 backdrop-blur-sm border-b border-gray-300 z-50"
->
-  <div
-    class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
-  >
-    <a href="home.html" class="font-bold text-xl">
-      Samiya Eshetu
-    </a>
-
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex gap-10">
-      <a href="home.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="resume.html" class="nav-link">Resume</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </div>
-
-    <!-- Mobile Button -->
-    <button
-      id="menuBtn"
-      class="md:hidden text-3xl font-light"
+    <nav
+      class="sticky top-0 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300 z-50"
     >
-      ☰
-    </button>
-  </div>
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
+      >
+        <a href="index.html" class="font-bold text-lg md:text-xl">
+          Samiya Eshetu
+        </a>
 
-  <!-- Mobile Menu -->
+        <div class="hidden md:flex gap-10">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link text-red-500">Projects</a>
+          <a href="resume.html" class="nav-link">Resume</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
 
-  <div
-    id="mobileMenu"
-    class="hidden md:hidden border-t border-gray-300"
-  >
-    <div class="flex flex-col px-6 py-6 gap-6">
+        <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+      </div>
 
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
-
-    </div>
-  </div>
-</nav>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden border-t border-gray-300 bg-[#efefef]"
+      >
+        <div class="flex flex-col text-center py-4">
+          <a href="index.html" class="py-4 border-b border-gray-200">Home</a>
+          <a href="about.html" class="py-4 border-b border-gray-200">About</a>
+          <a href="projects.html" class="py-4 border-b border-gray-200"
+            >Projects</a
+          >
+          <a href="resume.html" class="py-4 border-b border-gray-200">Resume</a>
+          <a href="contact.html" class="py-4">Contact</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- HERO -->
 
-    <section class="max-w-7xl mx-auto px-8 md:px-16 py-24">
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24">
       <h1 class="section-title mb-6">PROJECTS</h1>
 
-      <p class="text-xl text-gray-600 max-w-2xl">
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl">
         A selection of projects that showcase my skills in frontend development,
         backend integration, database design, and user experience.
       </p>
@@ -120,9 +112,11 @@
     <!-- PROJECT 1 -->
 
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-24 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
     >
-      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+      <div
+        class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center"
+      >
         <a href="https://example.com" target="_blank">
           <img
             src="assets/images/project1.jpg"
@@ -136,9 +130,9 @@
             Project 01
           </p>
 
-          <h2 class="text-5xl font-black mb-8">All-in-one Travel Platform</h2>
+          <h2 class="text-3xl md:text-5xl font-black mb-8">Explore Ethiopia</h2>
 
-          <div class="space-y-4">
+          <div class="space-y-4 text-gray-700">
             <p>
               <span class="font-bold">Project Type:</span>
               Travel Platform (University Final Project)
@@ -151,7 +145,7 @@
 
             <p>
               <span class="font-bold">Contribution:</span>
-              Front end
+              Front End
             </p>
 
             <p>
@@ -161,7 +155,7 @@
 
             <p>
               <span class="font-bold">Description:</span>
-              An All-in-one travel booking platform that connects users with hotels, rides,
+              A travel booking platform that connects users with hotels, rides,
               travel agents, and curated travel packages.
             </p>
           </div>
@@ -177,179 +171,98 @@
       </div>
     </section>
 
-    <!-- PROJECT 2 -->
-
-    <!--
-    <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-24 border-t border-gray-300"
-    >
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <a href="YOUR_LINK" target="_blank">
-          <img
-            src="assets/images/YOUR_POSTER.png"
-            class="project-poster w-full rounded-3xl shadow-lg"
-          />
-        </a>
-
-        <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Project 03
-          </p>
-
-          <h2 class="text-5xl font-black mb-8">Project Name</h2>
-
-          <div class="space-y-4">
-            <p>
-              <span class="font-bold">Project Type:</span>
-              Portfolio Website
-            </p>
-
-            <p>
-              <span class="font-bold">Technologies:</span>
-              HTML, CSS, JS
-            </p>
-
-            <p>
-              <span class="font-bold">Description:</span>
-              Description here.
-            </p>
-          </div>
-
-          <a
-            href="YOUR_LINK"
-            target="_blank"
-            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-          >
-            Visit Website →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    -->
-
     <!-- COMING SOON -->
 
     <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-24 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
     >
-      <h2 class="text-6xl font-black mb-16">COMING SOON</h2>
+      <h2 class="text-4xl md:text-6xl font-black mb-12">COMING SOON</h2>
 
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <img
-          src="assets/images/Tatari Poster.png"
-          class="w-full max-h-[550px] object-contain rounded-3xl"
-          alt="Coming Soon"
-        />
+      <div class="space-y-20">
+        <!-- Tatari -->
 
-        <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Future Project
-          </p>
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+          <img
+            src="assets/images/Tatari Poster.png"
+            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
+          />
 
-          <h3 class="text-5xl font-black mb-8">Tatari Productivity</h3>
-
-          <div class="space-y-4">
-            <p>
-              <span class="font-bold">Status:</span>
-              In Development
+          <div>
+            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
+              Future Project
             </p>
 
-            <p>
-              <span class="font-bold">Focus:</span>
-              Productivity & Focus
-            </p>
+            <h3 class="text-3xl md:text-5xl font-black mb-8">
+              Tatari Productivity
+            </h3>
 
-            <p>
-              <span class="font-bold">Description:</span>
-              Tatari is a productivity platform that combines focused work
-              sessions, personal progress tracking, and community-driven
-              motivation. The project explores how productivity tools can go
-              beyond simple task management by creating an environment where
-              users can build habits, share achievements, and stay accountable.
-            </p>
+            <div class="space-y-4">
+              <p><span class="font-bold">Status:</span> In Development</p>
+              <p><span class="font-bold">Focus:</span> Productivity & Focus</p>
+              <p>
+                <span class="font-bold">Description:</span>
+                Tatari combines focused work sessions, progress tracking, and
+                community-driven motivation.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-24 border-t border-gray-300"
-    >
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <img
-          src="assets/images/Dersan Poster.png"
-          class="w-full max-h-[550px] object-contain rounded-3xl"
-          alt="Coming Soon"
-        />
+        <!-- Dersan -->
 
-        <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Future Project
-          </p>
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+          <img
+            src="assets/images/Dersan Poster.png"
+            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
+          />
 
-          <h3 class="text-5xl font-black mb-8">Dersan Book Marketplace</h3>
-
-          <div class="space-y-4">
-            <p>
-              <span class="font-bold">Status:</span>
-              In Development
+          <div>
+            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
+              Future Project
             </p>
 
-            <p>
-              <span class="font-bold">Focus:</span>
-              E-commerce
-            </p>
+            <h3 class="text-3xl md:text-5xl font-black mb-8">
+              Dersan Book Marketplace
+            </h3>
 
-            <p>
-              <span class="font-bold">Description:</span>
-              Dersan explores the idea of creating a simple and organized
-              platform where users can browse, discover, and interact with book
-              listings. The project focuses on improving the experience of
-              finding books through a clean interface and a structured
-              marketplace system.
-            </p>
+            <div class="space-y-4">
+              <p><span class="font-bold">Status:</span> In Development</p>
+              <p><span class="font-bold">Focus:</span> E-Commerce</p>
+              <p>
+                <span class="font-bold">Description:</span>
+                A simple and organized marketplace for browsing and discovering
+                books.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-24 border-t border-gray-300"
-    >
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <img
-          src="assets/images/Tally Poster.png"
-          class="w-full max-h-[550px] object-contain rounded-3xl"
-          alt="Coming Soon"
-        />
+        <!-- Tally -->
 
-        <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Future Project
-          </p>
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+          <img
+            src="assets/images/Tally Poster.png"
+            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
+          />
 
-          <h3 class="text-5xl font-black mb-8">Tally Budgeting</h3>
-
-          <div class="space-y-4">
-            <p>
-              <span class="font-bold">Status:</span>
-              In Development
+          <div>
+            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
+              Future Project
             </p>
 
-            <p>
-              <span class="font-bold">Focus:</span>
-              Budgeting & Finance
-            </p>
+            <h3 class="text-3xl md:text-5xl font-black mb-8">
+              Tally Budgeting
+            </h3>
 
-            <p>
-              <span class="font-bold">Description:</span>
-              Tally explores the idea of making financial management more
-              accessible through a clean and organized experience. The platform
-              is designed around helping users track spending, understand their
-              financial habits, and create better awareness of where their money
-              goes.
-            </p>
+            <div class="space-y-4">
+              <p><span class="font-bold">Status:</span> In Development</p>
+              <p><span class="font-bold">Focus:</span> Budgeting & Finance</p>
+              <p>
+                <span class="font-bold">Description:</span>
+                A budgeting platform focused on helping users track spending and
+                improve financial awareness.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -358,13 +271,15 @@
     <!-- NEXT PAGE -->
 
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-24 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
     >
-      <div class="flex justify-between items-center">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left"
+      >
         <div>
           <p class="uppercase tracking-[0.3em] text-gray-500">Next Section</p>
 
-          <h2 class="text-5xl font-black mt-3">RESUME</h2>
+          <h2 class="text-3xl md:text-5xl font-black mt-3">RESUME</h2>
         </div>
 
         <a
@@ -375,13 +290,15 @@
         </a>
       </div>
     </section>
-    <script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-</script>
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>
+```
