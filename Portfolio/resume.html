@@ -51,72 +51,44 @@
 
   <body>
     <!-- NAV -->
-
-<nav
-  class="sticky top-0 bg-[#efefef]/90 backdrop-blur-sm border-b border-gray-300 z-50"
->
-  <div
-    class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
-  >
-    <a href="home.html" class="font-bold text-xl">
-      Samiya Eshetu
-    </a>
-
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex gap-10">
-      <a href="home.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="resume.html" class="nav-link">Resume</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </div>
-
-    <!-- Mobile Button -->
-    <button
-      id="menuBtn"
-      class="md:hidden text-3xl font-light"
+    <nav
+      class="sticky top-0 bg-[#efefef]/90 backdrop-blur-sm border-b border-gray-300 z-50"
     >
-      ☰
-    </button>
-  </div>
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 flex justify-between items-center"
+      >
+        <a href="home.html" class="font-bold text-lg md:text-xl"
+          >Samiya Eshetu</a
+        >
 
-  <!-- Mobile Menu -->
-
-  <div
-    id="mobileMenu"
-    class="hidden md:hidden border-t border-gray-300"
-  >
-    <div class="flex flex-col px-6 py-6 gap-6">
-
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
-
-    </div>
-  </div>
-</nav>
+        <div class="hidden md:flex gap-10">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="resume.html" class="nav-link text-red-500">Resume</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24">
+      <h1 class="section-title mb-6 md:mb-10">RESUME</h1>
 
-    <section class="max-w-7xl mx-auto px-8 md:px-16 py-24">
-      <h1 class="section-title mb-10">RESUME</h1>
-
-      <p class="text-xl text-gray-600 max-w-3xl leading-relaxed">
+      <p class="text-base md:text-xl text-gray-600 max-w-3xl leading-relaxed">
         Building modern web experiences while continuously expanding my
         expertise in frontend and full-stack web development.
       </p>
     </section>
 
-    <!-- CAREER OBJECTIVE -->
-
+    <!-- OBJECTIVE -->
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-10">CAREER OBJECTIVE</h2>
-
-      <p class="max-w-4xl text-lg text-gray-600 leading-relaxed">
+      <h2 class="text-3xl md:text-5xl font-black mb-6 md:mb-10">
+        CAREER OBJECTIVE
+      </h2>
+      <p class="text-gray-600 text-base md:text-lg max-w-4xl leading-relaxed">
         Seeking an opportunity to contribute to a professional web development
         team while expanding my expertise in frontend technologies and modern
         web application development.
@@ -124,249 +96,176 @@
     </section>
 
     <!-- EDUCATION -->
-
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-12">EDUCATION</h2>
+      <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12">EDUCATION</h2>
 
       <div>
-        <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">2021 — 2026</p>
+        <p
+          class="uppercase tracking-[0.3em] text-gray-500 mb-3 md:mb-4 text-xs md:text-sm"
+        >
+          2021 — 2026
+        </p>
 
-        <h3 class="text-3xl font-bold mb-3">
+        <h3 class="text-xl md:text-3xl font-bold mb-2 md:mb-3">
           Bachelor of Science in Computer Science
         </h3>
 
-        <p class="text-gray-600 text-lg">Unity University</p>
-
-        <p class="text-gray-500 mt-2">Addis Ababa, Ethiopia</p>
-
-        <p class="mt-6 text-xl font-semibold">GPA: 3.6</p>
+        <p class="text-gray-600">Unity University</p>
+        <p class="text-gray-500 text-sm md:text-base mt-1">
+          Addis Ababa, Ethiopia
+        </p>
+        <p class="mt-4 md:mt-6 font-semibold">GPA: 3.6</p>
       </div>
     </section>
 
-    <!-- TECHNICAL SKILLS -->
-
+    <!-- SKILLS -->
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-12">TECHNICAL SKILLS</h2>
+      <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12">
+        TECHNICAL SKILLS
+      </h2>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="border border-gray-400 p-6 rounded-2xl">HTML5</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">CSS3</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">JavaScript</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">Tailwind CSS</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">Bootstrap</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">React.js</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">Git & GitHub</div>
-        <div class="border border-gray-400 p-6 rounded-2xl">
-          Responsive Design
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">HTML5</div>
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">CSS3</div>
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">
+          JavaScript
         </div>
-      </div>
-    </section>
-
-    <!-- PROFESSIONAL SKILLS -->
-
-    <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
-    >
-      <h2 class="text-5xl font-black mb-12">PROFESSIONAL SKILLS</h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="border border-gray-400 p-8 rounded-2xl">
-          Strong Communication
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">
+          Tailwind
         </div>
-
-        <div class="border border-gray-400 p-8 rounded-2xl">
-          Team Collaboration
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">
+          Bootstrap
         </div>
-
-        <div class="border border-gray-400 p-8 rounded-2xl">
-          Problem Solving
-        </div>
-
-        <div class="border border-gray-400 p-8 rounded-2xl">
-          Fast Learning Ability
-        </div>
-
-        <div class="border border-gray-400 p-8 rounded-2xl">Adaptability</div>
-
-        <div class="border border-gray-400 p-8 rounded-2xl">
-          Attention to Detail
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">React</div>
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">Git</div>
+        <div class="border border-gray-400 p-4 md:p-6 rounded-2xl">
+          Responsive
         </div>
       </div>
     </section>
 
+    <!-- EXPERIENCE -->
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-12">EXPERIENCE</h2>
+      <h2 class="text-3xl md:text-5xl font-black mb-10 md:mb-12">EXPERIENCE</h2>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- LETTER IMAGE -->
-
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <!-- IMAGE -->
         <div class="relative">
           <img
             src="assets/images/internship.PNG"
-            alt="Internship Acceptance Letter"
-            class="rounded-3xl shadow-xl border border-gray-300 hover:scale-[1.02] transition duration-300"
+            class="rounded-3xl shadow-xl border border-gray-300 w-full"
           />
 
           <div
-            class="absolute top-5 left-5 bg-white px-4 py-2 rounded-full shadow-md"
+            class="absolute top-3 left-3 md:top-5 md:left-5 bg-white px-3 md:px-4 py-1 md:py-2 rounded-full shadow-md text-xs md:text-sm"
           >
-            <p class="text-sm font-semibold">Internship Offer</p>
+            Internship Offer
           </div>
         </div>
 
-        <!-- DETAILS -->
-
+        <!-- TEXT -->
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">2026</p>
-
-          <h3 class="text-4xl font-black mb-6">Web Development Internship</h3>
-
-          <p class="text-lg text-gray-600 mb-6">
-            Accepted Internship Opportunity
+          <p
+            class="text-xs md:text-sm tracking-[0.3em] text-gray-500 mb-3 md:mb-4"
+          >
+            2026
           </p>
 
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Received an internship acceptance offer to contribute to
-            professional web development projects while gaining hands-on
-            industry experience.
-          </p>
+          <h3 class="text-2xl md:text-4xl font-black mb-4 md:mb-6">
+            Web Development Internship
+          </h3>
 
-          <p class="text-gray-600 leading-relaxed">
-            The internship focuses on applying frontend development skills,
-            collaborating within a professional environment, and strengthening
-            practical experience in modern web technologies.
+          <p class="text-gray-600 mb-4">Accepted Internship Opportunity</p>
+
+          <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+            Received an internship offer to gain hands-on experience in real
+            development projects and strengthen frontend skills in a
+            professional environment.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- CERTIFICATION -->
-
+    <!-- CERTIFICATE -->
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-12">ADDITIONAL COURSES</h2>
+      <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12">
+        CERTIFICATIONS
+      </h2>
 
       <div>
-        <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">2024</p>
-
-        <h3 class="text-3xl font-bold">Full Stack Web Development</h3>
-
-        <p class="text-gray-600 mt-3">Kabowd Code Sync</p>
+        <p class="text-xs md:text-sm text-gray-500 tracking-[0.3em] mb-3">
+          2024
+        </p>
+        <h3 class="text-xl md:text-3xl font-bold">
+          Full Stack Web Development
+        </h3>
+        <p class="text-gray-600 mt-2">Kabowd Code Sync</p>
       </div>
     </section>
 
     <!-- ACHIEVEMENTS -->
-
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-12">ACHIEVEMENTS</h2>
+      <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12">
+        ACHIEVEMENTS
+      </h2>
 
-      <div>
-        <h3 class="text-3xl font-bold mb-4">
-          Academic Achievement Certificate
-        </h3>
-
-        <p class="text-gray-600 text-lg">
-          Awarded by Unity University for maintaining a GPA above 3.5.
-        </p>
-      </div>
-    </section>
-
-    <!-- LANGUAGES -->
-
-    <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
-    >
-      <h2 class="text-5xl font-black mb-12">LANGUAGES</h2>
-
-      <div class="flex flex-wrap gap-6">
-        <div class="border border-gray-400 px-8 py-4 rounded-full">Amharic</div>
-
-        <div class="border border-gray-400 px-8 py-4 rounded-full">English</div>
-
-        <div class="border border-gray-400 px-8 py-4 rounded-full">Arabic</div>
-      </div>
-    </section>
-
-    <!-- CURRENT FOCUS -->
-
-    <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
-    >
-      <h2 class="text-5xl font-black mb-12">CURRENT FOCUS</h2>
-
-      <p class="max-w-4xl text-lg text-gray-600 leading-relaxed">
-        Building responsive and accessible web applications using modern
-        frontend technologies while continuing to strengthen backend
-        development, database design, and full-stack development skills.
+      <p class="text-gray-600 text-sm md:text-lg">
+        Academic Achievement Certificate awarded by Unity University for GPA
+        above 3.5.
       </p>
     </section>
 
-    <!-- DOWNLOAD CV -->
-
+    <!-- LANGUAGES -->
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-24 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-6 md:px-16 py-14 md:py-20 border-t border-gray-300"
+    >
+      <h2 class="text-3xl md:text-5xl font-black mb-8 md:mb-12">LANGUAGES</h2>
+
+      <div class="flex flex-wrap gap-3 md:gap-6">
+        <div class="border-2 px-5 py-2 md:px-8 md:py-4 rounded-full">
+          Amharic
+        </div>
+        <div class="border-2 px-5 py-2 md:px-8 md:py-4 rounded-full">
+          English
+        </div>
+        <div class="border-2 px-5 py-2 md:px-8 md:py-4 rounded-full">
+          Arabic
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section
+      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
     >
       <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10"
+        class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10"
       >
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
+          <p class="text-gray-500 uppercase tracking-[0.3em] mb-2">
             Resume PDF
           </p>
-
-          <h2 class="text-5xl font-black">DOWNLOAD CV</h2>
+          <h2 class="text-3xl md:text-5xl font-black">DOWNLOAD CV</h2>
         </div>
 
         <a
           href="assets/documents/Samiya_Eshetu_2026.pdf"
           download
-          class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+          class="border border-black px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-black hover:text-white transition"
         >
           Download →
         </a>
       </div>
     </section>
-
-    <!-- NEXT PAGE -->
-
-    <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-24 border-t border-gray-300"
-    >
-      <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10"
-      >
-        <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">
-            Next Section
-          </p>
-
-          <h2 class="text-5xl font-black">CONTACT</h2>
-        </div>
-
-        <a
-          href="contact.html"
-          class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
-        >
-          Let's Talk →
-        </a>
-      </div>
-    </section>
-    <script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-</script>
   </body>
 </html>
