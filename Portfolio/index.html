@@ -75,27 +75,51 @@
   <body>
     <!-- NAVBAR -->
 
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-[#efefef]/80 backdrop-blur-sm border-b border-gray-300"
+   <nav
+  class="sticky top-0 bg-[#efefef]/90 backdrop-blur-sm border-b border-gray-300 z-50"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
+  >
+    <a href="home.html" class="font-bold text-xl">
+      Samiya Eshetu
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex gap-10">
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="resume.html" class="nav-link">Resume</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Mobile Button -->
+    <button
+      id="menuBtn"
+      class="md:hidden text-3xl font-light"
     >
-      <div
-        class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center"
-      >
-        <a href="#" class="font-bold text-xl"> Samiya Eshetu </a>
+      ☰
+    </button>
+  </div>
 
-        <div class="hidden md:flex gap-10">
-          <a href="index.html" class="nav-link"> Home </a>
+  <!-- Mobile Menu -->
 
-          <a href="about.html" class="nav-link"> About </a>
+  <div
+    id="mobileMenu"
+    class="hidden md:hidden border-t border-gray-300"
+  >
+    <div class="flex flex-col px-6 py-6 gap-6">
 
-          <a href="projects.html" class="nav-link"> Projects </a>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
 
-          <a href="resume.html" class="nav-link"> Resume </a>
-
-          <a href="contact.html" class="nav-link"> Contact </a>
-        </div>
-      </div>
-    </nav>
+    </div>
+  </div>
+</nav>
 
     <!-- HERO -->
 
@@ -172,5 +196,13 @@
         </div>
       </div>
     </footer>
+    <script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+</script>
   </body>
 </html>
