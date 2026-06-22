@@ -20,12 +20,14 @@
       body {
         font-family: "Inter", sans-serif;
         background: #efefef;
+        overflow-x: hidden;
       }
 
       .hero-title {
-        font-size: clamp(2rem, 6vw, 5rem);
-        line-height: 0.9;
+        font-size: clamp(2.8rem, 8vw, 6rem);
+        line-height: 0.88;
         font-weight: 900;
+        letter-spacing: -0.05em;
       }
 
       .nav-link {
@@ -36,7 +38,7 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: -4px;
+        bottom: -6px;
         width: 0;
         height: 2px;
         background: #ef4444;
@@ -52,7 +54,7 @@
       }
 
       .contact-link:hover {
-        transform: translateX(12px);
+        transform: translateX(8px);
       }
 
       input,
@@ -64,56 +66,51 @@
   </head>
 
   <body>
-    <!-- NAV -->
-<nav
-  class="sticky top-0 bg-[#efefef]/90 backdrop-blur-sm border-b border-gray-300 z-50"
->
-  <div
-    class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
-  >
-    <a href="home.html" class="font-bold text-xl">
-      Samiya Eshetu
-    </a>
+    <!-- NAVIGATION -->
 
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex gap-10">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="projects.html" class="nav-link">Projects</a>
-      <a href="resume.html" class="nav-link">Resume</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </div>
-
-    <!-- Mobile Button -->
-    <button
-      id="menuBtn"
-      class="md:hidden text-3xl font-light"
+    <nav
+      class="sticky top-0 z-50 bg-[#efefef]/90 backdrop-blur-md border-b border-gray-300"
     >
-      ☰
-    </button>
-  </div>
+      <div
+        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-5 flex justify-between items-center"
+      >
+        <a href="home.html" class="font-bold text-lg sm:text-xl tracking-tight">
+          Samiya Eshetu
+        </a>
 
-  <!-- Mobile Menu -->
+        <div class="hidden md:flex gap-8 lg:gap-10 text-sm">
+          <a href="index.html" class="nav-link"> Home </a>
 
-  <div
-    id="mobileMenu"
-    class="hidden md:hidden border-t border-gray-300"
-  >
-    <div class="flex flex-col px-6 py-6 gap-6">
+          <a href="about.html" class="nav-link"> About </a>
 
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
+          <a href="projects.html" class="nav-link"> Projects </a>
 
-    </div>
-  </div>
-</nav>
+          <a href="resume.html" class="nav-link"> Resume </a>
+
+          <a href="contact.html" class="nav-link"> Contact </a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-3xl leading-none">☰</button>
+      </div>
+
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-300">
+        <div class="flex flex-col px-6 py-6 gap-5 text-lg">
+          <a href="index.html"> Home </a>
+
+          <a href="about.html"> About </a>
+
+          <a href="projects.html"> Projects </a>
+
+          <a href="resume.html"> Resume </a>
+
+          <a href="contact.html"> Contact </a>
+        </div>
+      </div>
+    </nav>
 
     <!-- HERO -->
 
-    <section class="max-w-7xl mx-auto px-8 md:px-16 py-24">
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-20 sm:py-28">
       <h1 class="hero-title">
         LET'S BUILD
         <br />
@@ -122,40 +119,61 @@
         TOGETHER
       </h1>
 
-      <p class="text-xl text-gray-600 mt-10 max-w-2xl leading-relaxed">
+      <p
+        class="mt-8 sm:mt-10 text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed"
+      >
         Whether you're looking for a developer, have an interesting project, or
         simply want to connect, I'd love to hear from you.
       </p>
     </section>
 
-    <!-- CONTACT LINKS -->
+    <!-- CONTACT INFO -->
 
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
     >
-      <div class="grid md:grid-cols-2 gap-12">
-        <a href="mailto:samiyaeshetu@gmail.com" class="contact-link block">
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Email</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+        <a href="mailto:samiyaeshetu@gmail.com" class="contact-link">
+          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
+            Email
+          </p>
 
-          <h2 class="text-3xl font-bold">samiyaeshetu@gmail.com</h2>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
+            samiyaeshetu@gmail.com
+          </h2>
         </a>
 
-        <a href="tel:+251943044353" class="contact-link block">
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Phone</p>
+        <a href="tel:+251943044353" class="contact-link">
+          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
+            Phone
+          </p>
 
-          <h2 class="text-3xl font-bold">+251 943 044 353</h2>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold">
+            +251 943 044 353
+          </h2>
         </a>
 
-        <a href="https://github.com/samiya-eshetu" class="contact-link block">
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">GitHub</p>
+        <a href="https://github.com/samiya-eshetu" class="contact-link">
+          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
+            GitHub
+          </p>
 
-          <h2 class="text-3xl font-bold">github.com/Samiya-eshetu</h2>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
+            github.com/Samiya-eshetu
+          </h2>
         </a>
 
-        <a href="www.linkedin.com/in/samiya-eshetu-0744ba3a2" class="contact-link block">
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">LinkedIn</p>
+        <a
+          href="https://www.linkedin.com/in/samiya-eshetu"
+          class="contact-link"
+        >
+          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
+            LinkedIn
+          </p>
 
-          <h2 class="text-3xl font-bold">linkedin.com/in/Samiya-eshetu</h2>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
+            linkedin.com/in/Samiya-eshetu
+          </h2>
         </a>
       </div>
     </section>
@@ -163,78 +181,86 @@
     <!-- CONTACT FORM -->
 
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
     >
-      <h2 class="text-5xl font-black mb-16">SEND A MESSAGE</h2>
+      <h2 class="text-4xl sm:text-5xl font-black mb-12">SEND A MESSAGE</h2>
 
       <form
         action="https://formspree.io/f/mnjyevjy"
         method="POST"
         class="max-w-4xl"
       >
-        <div class="mb-10">
-          <label class="block mb-3 text-gray-500 uppercase tracking-[0.2em]">
+        <div class="mb-8">
+          <label
+            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
+          >
             Name
           </label>
 
           <input
             type="text"
             name="name"
-            class="w-full border-b border-gray-400 py-4 text-xl"
+            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl"
           />
         </div>
 
-        <div class="mb-10">
-          <label class="block mb-3 text-gray-500 uppercase tracking-[0.2em]">
+        <div class="mb-8">
+          <label
+            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
+          >
             Email
           </label>
 
           <input
             type="email"
             name="email"
-            class="w-full border-b border-gray-400 py-4 text-xl"
+            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl"
           />
         </div>
 
-        <div class="mb-12">
-          <label class="block mb-3 text-gray-500 uppercase tracking-[0.2em]">
+        <div class="mb-10">
+          <label
+            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
+          >
             Message
           </label>
 
           <textarea
-            name="Message"
+            name="message"
             rows="5"
-            class="w-full border-b border-gray-400 py-4 text-xl resize-none"
+            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl resize-none"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
         >
           Send Message →
         </button>
       </form>
     </section>
 
-    <!-- RESUME DOWNLOAD -->
+    <!-- CV -->
 
     <section
-      class="max-w-7xl mx-auto px-8 md:px-16 py-20 border-t border-gray-300"
+      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
     >
       <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10"
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
       >
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-3">Resume</p>
+          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
+            Resume
+          </p>
 
-          <h2 class="text-5xl font-black">DOWNLOAD CV</h2>
+          <h2 class="text-4xl sm:text-5xl font-black">DOWNLOAD CV</h2>
         </div>
 
         <a
           href="assets/documents/Samiya_Eshetu_2026.pdf"
           download
-          class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
         >
           Download →
         </a>
@@ -244,19 +270,20 @@
     <!-- FOOTER -->
 
     <footer class="border-t border-gray-300">
-      <div class="max-w-7xl mx-auto px-8 md:px-16 py-10">
-        <p class="text-center text-gray-500">
+      <div class="max-w-7xl mx-auto px-5 py-10">
+        <p class="text-center text-gray-500 text-sm">
           © 2026 Samiya Eshetu. All Rights Reserved.
         </p>
       </div>
     </footer>
-    <script>
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-</script>
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.onclick = () => {
+        mobileMenu.classList.toggle("hidden");
+      };
+    </script>
   </body>
 </html>
