@@ -1,76 +1,60 @@
-<html>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Projects | Samiya Eshetu</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      body {
-        font-family: "Inter", sans-serif;
-        background: #efefef;
-      }
+      html { scroll-behavior: smooth; }
+      body { font-family: "Inter", sans-serif; background: #efefef; }
 
-      .section-title {
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 0.9;
-        font-weight: 900;
-      }
+      .section-title { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 0.9; font-weight: 900; }
 
-      .project-poster {
-        transition: 0.4s;
-      }
-
-      .project-poster:hover {
-        transform: translateY(-8px);
-      }
-
-      .nav-link {
-        position: relative;
-      }
-
+      .nav-link { position: relative; }
       .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0;
-        height: 2px;
-        background: #ef4444;
-        transition: 0.3s;
+        content: ""; position: absolute; left: 0; bottom: -4px;
+        width: 0; height: 2px; background: #ef4444; transition: 0.3s;
       }
+      .nav-link:hover::after { width: 100%; }
 
-      .nav-link:hover::after {
-        width: 100%;
+      /* screenshot with an offset frame line (same motif as About) */
+      .shot { position: relative; display: block; margin: 0 14px 14px 0; }
+      .shot::before {
+        content: ""; position: absolute; inset: 0; border: 2px solid #111;
+        transform: translate(14px, 14px); transition: transform .4s ease;
+      }
+      .shot img { position: relative; display: block; width: 100%; }
+      .shot:hover::before { transform: translate(6px, 6px); }
+
+      .spec { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid #d1d5db; }
+      .spec dt { color: #6b7280; }
+
+      .fade { opacity: 0; transition: opacity .9s ease; }
+      .loaded .fade { opacity: 1; }
+      .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+      .reveal.on { opacity: 1; transform: none; }
+
+      @media (max-width: 480px) { .spec { grid-template-columns: 1fr; gap: .2rem; } }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
       }
     </style>
   </head>
 
   <body>
     <!-- NAVBAR -->
-
-    <nav
-      class="sticky top-0 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300 z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
-      >
-        <a href="index.html" class="font-bold text-lg md:text-xl">
-          Samiya Eshetu
-        </a>
-
+    <nav class="sticky top-0 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300 z-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center">
+        <a href="index.html" class="font-bold text-lg md:text-xl">Samiya Eshetu</a>
         <div class="hidden md:flex gap-10">
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link">About</a>
@@ -78,20 +62,13 @@
           <a href="resume.html" class="nav-link">Resume</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
-
-        <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        <button id="menuBtn" class="md:hidden text-3xl" aria-label="Open menu">☰</button>
       </div>
-
-      <div
-        id="mobileMenu"
-        class="hidden md:hidden border-t border-gray-300 bg-[#efefef]"
-      >
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-300 bg-[#efefef]">
         <div class="flex flex-col text-center py-4">
           <a href="index.html" class="py-4 border-b border-gray-200">Home</a>
           <a href="about.html" class="py-4 border-b border-gray-200">About</a>
-          <a href="projects.html" class="py-4 border-b border-gray-200"
-            >Projects</a
-          >
+          <a href="projects.html" class="py-4 border-b border-gray-200 text-red-500">Projects</a>
           <a href="resume.html" class="py-4 border-b border-gray-200">Resume</a>
           <a href="contact.html" class="py-4">Contact</a>
         </div>
@@ -99,373 +76,148 @@
     </nav>
 
     <!-- HERO -->
-
-    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24">
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 fade">
       <h1 class="section-title mb-6">PROJECTS</h1>
-
       <p class="text-lg md:text-xl text-gray-600 max-w-2xl">
         A selection of projects that showcase my skills in frontend development,
         backend integration, database design, and user experience.
       </p>
     </section>
 
-    <!-- PROJECT 1 -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center"
-      >
-        <a href="https://all-in-one-travel-platform.ifree.page/" target="_blank">
-          <img
-            src="assets/images/Allinone.PNG"
-            class="project-poster w-full rounded-3xl shadow-lg"
-            alt="Explore Ethiopia"
-          />
+    <!-- PROJECT 01 -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 md:gap-16 items-center reveal">
+        <a href="https://all-in-one-travel-platform.ifree.page/" target="_blank" rel="noopener" class="shot">
+          <img src="assets/images/Allinone.PNG" alt="All-In-One Travel Platform" />
         </a>
-
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Project 01
-          </p>
-
+          <p class="text-red-500 font-semibold mb-4">01</p>
           <h2 class="text-3xl md:text-5xl font-black mb-8">All-In-One Travel Platform</h2>
-
-          <div class="space-y-4 text-gray-700">
-            <p>
-              <span class="font-bold">Project Type:</span>
-              Travel Platform (University Final Project)
-            </p>
-
-            <p>
-              <span class="font-bold">Team:</span>
-              Group Project
-            </p>
-
-            <p>
-              <span class="font-bold">Main Contribution:</span>
-              Front End
-            </p>
-
-            <p>
-              <span class="font-bold">Technologies:</span>
-              HTML, CSS, Bootstrap, PHP, MySQL
-            </p>
-
-            <p>
-              <span class="font-bold">Description:</span>
-              A travel platform that connects users with hotels, rides,
-              travel agents, and curated travel packages.
-            </p>
-          </div>
-
-          <a
-            href="https://all-in-one-travel-platform.ifree.page/"
-            target="_blank"
-            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-          >
+          <dl>
+            <div class="spec"><dt>Type</dt><dd>Travel platform (university final project)</dd></div>
+            <div class="spec"><dt>Team</dt><dd>Group project</dd></div>
+            <div class="spec"><dt>Contribution</dt><dd>Front end</dd></div>
+            <div class="spec"><dt>Technologies</dt><dd>HTML, CSS, Bootstrap, PHP, MySQL</dd></div>
+            <div class="spec"><dt>Description</dt><dd>A travel platform that connects users with hotels, rides, travel agents, and curated travel packages.</dd></div>
+          </dl>
+          <a href="https://all-in-one-travel-platform.ifree.page/" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
             Visit Website →
           </a>
         </div>
       </div>
     </section>
 
-     <!-- PROJECT 2 -->
-    
-        <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center"
-      >
-        <a href="https://mern-thinkboard-olyi.onrender.com" target="_blank">
-          <img
-            src="assets/images/MERN.png"
-            class="project-poster w-full rounded-3xl shadow-lg"
-            alt="Full-stack Note taking App"
-          />
+    <!-- PROJECT 02 -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 md:gap-16 items-center reveal">
+        <a href="https://mern-thinkboard-olyi.onrender.com" target="_blank" rel="noopener" class="shot">
+          <img src="assets/images/MERN.png" alt="Full-stack MERN note taking app" />
         </a>
-
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Project 02
-          </p>
-
-          <h2 class="text-3xl md:text-5xl font-black mb-8">
-            Full Stack MERN note taking app
-          </h2>
-
-          <div class="space-y-4 text-gray-700">
-            <p>
-              <span class="font-bold">Project Type:</span>
-              full stack MERN app
-            </p>
-
-            <p>
-              <span class="font-bold">Team:</span>
-              Individual
-            </p>
-
-            <p>
-              <span class="font-bold">Technologies:</span>
-              MERN Stack: Mongo DB, Express.js , React.js, Node.js
-            </p>
-
-            <p>
-              <span class="font-bold">Description:</span>
-              A full-stack MERN note-taking app featuring CRUD functionality, a
-              responsive dark-themed UI, MongoDB data storage, and API rate
-              limiting for a smooth user experience.
-            </p>
-          </div>
-
-          <a
-            href="https://mern-thinkboard-olyi.onrender.com"
-            target="_blank"
-            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-          >
+          <p class="text-red-500 font-semibold mb-4">02</p>
+          <h2 class="text-3xl md:text-5xl font-black mb-8">Full Stack MERN Note Taking App</h2>
+          <dl>
+            <div class="spec"><dt>Type</dt><dd>Full stack MERN app</dd></div>
+            <div class="spec"><dt>Team</dt><dd>Individual</dd></div>
+            <div class="spec"><dt>Technologies</dt><dd>MongoDB, Express.js, React.js, Node.js</dd></div>
+            <div class="spec"><dt>Description</dt><dd>A full-stack MERN note-taking app featuring CRUD functionality, a responsive dark-themed UI, MongoDB data storage, and API rate limiting for a smooth user experience.</dd></div>
+          </dl>
+          <a href="https://mern-thinkboard-olyi.onrender.com" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
             Visit Website →
           </a>
         </div>
       </div>
     </section>
 
-    
-     <!-- PROJECT 3 -->
-    
-        <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center"
-      >
-        <a href="https://voice-cube-demo-emm1l32wr-samiyaeshetu-8327s-projects.vercel.app/" target="_blank">
-          <img
-            src="assets/images/cube.png"
-            class="project-poster w-full rounded-3xl shadow-lg"
-            alt="Interactive Cube"
-          />
+    <!-- PROJECT 03 -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 md:gap-16 items-center reveal">
+        <a href="https://voice-cube-demo-emm1l32wr-samiyaeshetu-8327s-projects.vercel.app/" target="_blank" rel="noopener" class="shot">
+          <img src="assets/images/cube.png" alt="Voice-controlled 3D cube" />
         </a>
-
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Project 03
-          </p>
-
-          <h2 class="text-3xl md:text-5xl font-black mb-8">
-           Voice-Controlled 3D Cube
-          </h2>
-
-          <div class="space-y-4 text-gray-700">
-            <p>
-              <span class="font-bold">Project Type:</span>
-              Interactive 3D web experience
-            </p>
-
-            <p>
-              <span class="font-bold">Team:</span>
-              Individual
-            </p>
-
-            <p>
-              <span class="font-bold">Technologies:</span>
-              Three.js, Web Speech API, JavaScript, HTML/CSS
-            </p>
-
-            <p>
-              <span class="font-bold">Description:</span>
-               A browser-based 3D scene controlled entirely through voice commands, no clicks, no keyboard. Speaking phrases like "spin," "faster," or "rainbow" updates the cube's rotation, color, and scale in real time using the Web Speech API for recognition and Three.js/WebGL for rendering.
-            </p>
-          </div>
-
-          <a
-            href="https://voice-cube-demo-emm1l32wr-samiyaeshetu-8327s-projects.vercel.app/"
-            target="_blank"
-            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-          >
+          <p class="text-red-500 font-semibold mb-4">03</p>
+          <h2 class="text-3xl md:text-5xl font-black mb-8">Voice-Controlled 3D Cube</h2>
+          <dl>
+            <div class="spec"><dt>Type</dt><dd>Interactive 3D web experience</dd></div>
+            <div class="spec"><dt>Team</dt><dd>Individual</dd></div>
+            <div class="spec"><dt>Technologies</dt><dd>Three.js, Web Speech API, JavaScript, HTML/CSS</dd></div>
+            <div class="spec"><dt>Description</dt><dd>A browser-based 3D scene controlled entirely through voice commands, no clicks, no keyboard. Speaking phrases like "spin," "faster," or "rainbow" updates the cube's rotation, color, and scale in real time using the Web Speech API for recognition and Three.js/WebGL for rendering.</dd></div>
+          </dl>
+          <a href="https://voice-cube-demo-emm1l32wr-samiyaeshetu-8327s-projects.vercel.app/" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
             Visit Website →
           </a>
         </div>
       </div>
     </section>
 
-
-    <!-- PROJECT 4 -->
-    
-        <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-16 items-center"
-      >
-        <a href="https://dersan-book-marketplace-1.onrender.com/" target="_blank">
-          <img
-            src="assets/images/dersan.png"
-            class="project-poster w-full rounded-3xl shadow-lg"
-            alt="Dersan Bok marketplace"
-          />
+    <!-- PROJECT 04 -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 md:gap-16 items-center reveal">
+        <a href="https://dersan-book-marketplace-1.onrender.com/" target="_blank" rel="noopener" class="shot">
+          <img src="assets/images/dersan.png" alt="Dersan Book Marketplace" />
         </a>
-
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-            Project 04
-          </p>
-
-          <h2 class="text-3xl md:text-5xl font-black mb-8">
-           Dersan Book Marketplace
-          </h2>
-
-          <div class="space-y-4 text-gray-700">
-            <p>
-              <span class="font-bold">Project Type:</span>
-              Marketplace / Social Media
-            </p>
-
-            <p>
-              <span class="font-bold">Team:</span>
-              Individual
-            </p>
-
-            <p>
-              <span class="font-bold">Technologies:</span>
-              MERN Stack: Mongo DB, Express.js , React.js, Node.js
-            </p>
-
-            <p>
-              <span class="font-bold">Description:</span>
-               Dersan is a full-stack MERN book marketplace where users buy, sell, and message each other over secondhand books, plus a community feed for posting about what they're reading, with likes, comments, and hashtags. It includes a notification system, user reporting with an admin moderation dashboard, JWT auth, and Cloudinary image uploads .
-            </p>
-          </div>
-
-          <a
-            href="https://dersan-book-marketplace-1.onrender.com/"
-            target="_blank"
-            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-          >
+          <p class="text-red-500 font-semibold mb-4">04</p>
+          <h2 class="text-3xl md:text-5xl font-black mb-8">Dersan Book Marketplace</h2>
+          <dl>
+            <div class="spec"><dt>Type</dt><dd>Marketplace / social media</dd></div>
+            <div class="spec"><dt>Team</dt><dd>Individual</dd></div>
+            <div class="spec"><dt>Technologies</dt><dd>MongoDB, Express.js, React.js, Node.js</dd></div>
+            <div class="spec"><dt>Description</dt><dd>Dersan is a full-stack MERN book marketplace where users buy, sell, and message each other over secondhand books, plus a community feed for posting about what they're reading, with likes, comments, and hashtags. It includes a notification system, user reporting with an admin moderation dashboard, JWT auth, and Cloudinary image uploads.</dd></div>
+          </dl>
+          <a href="https://dersan-book-marketplace-1.onrender.com/" target="_blank" rel="noopener"
+            class="inline-flex items-center gap-3 mt-10 border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
             Visit Website →
           </a>
         </div>
       </div>
     </section>
-
-    
 
     <!-- COMING SOON -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <h2 class="text-4xl md:text-6xl font-black mb-12">COMING SOON</h2>
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <h2 class="text-4xl md:text-6xl font-black mb-12 reveal">COMING SOON</h2>
 
       <div class="space-y-20">
-        <!-- Tatari -->
-
-        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          <img
-            src="assets/images/Tatari Poster.png"
-            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
-          />
-
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+          <img src="assets/images/Tatari Poster.png" alt="Tatari Productivity" class="w-full max-h-[400px] md:max-h-[550px] object-contain" />
           <div>
-            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-              Future Project
-            </p>
-
-            <h3 class="text-3xl md:text-5xl font-black mb-8">
-              Tatari Productivity
-            </h3>
-
-            <div class="space-y-4">
-              <p><span class="font-bold">Status:</span> In Development</p>
-              <p><span class="font-bold">Focus:</span> Productivity & Focus</p>
-              <p>
-                <span class="font-bold">Description:</span>
-                Tatari combines focused work sessions, progress tracking, and
-                community-driven motivation.
-              </p>
-            </div>
+            <p class="text-gray-500 mb-4">Future project</p>
+            <h3 class="text-3xl md:text-5xl font-black mb-8">Tatari Productivity</h3>
+            <dl>
+              <div class="spec"><dt>Status</dt><dd>In development</dd></div>
+              <div class="spec"><dt>Focus</dt><dd>Productivity &amp; focus</dd></div>
+              <div class="spec"><dt>Description</dt><dd>Tatari combines focused work sessions, progress tracking, and community-driven motivation.</dd></div>
+            </dl>
           </div>
         </div>
 
-        <!-- Dersan -->
-<!--
-        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          <img
-            src="assets/images/Dersan Poster.png"
-            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
-          />
-
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center reveal">
+          <img src="assets/images/Tally Poster.png" alt="Tally Budgeting" class="w-full max-h-[400px] md:max-h-[550px] object-contain" />
           <div>
-            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-              Future Project
-            </p>
-
-            <h3 class="text-3xl md:text-5xl font-black mb-8">
-              Dersan Book Marketplace
-            </h3>
-
-            <div class="space-y-4">
-              <p><span class="font-bold">Status:</span> In Development</p>
-              <p><span class="font-bold">Focus:</span> E-Commerce</p>
-              <p>
-                <span class="font-bold">Description:</span>
-                A simple and organized marketplace for browsing and discovering
-                books.
-              </p>
-            </div>
-          </div>
-        </div>
--->
-        <!-- Tally -->
-
-        <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          <img
-            src="assets/images/Tally Poster.png"
-            class="w-full max-h-[400px] md:max-h-[550px] object-contain rounded-3xl"
-          />
-
-          <div>
-            <p class="uppercase tracking-[0.3em] text-gray-500 mb-4">
-              Future Project
-            </p>
-
-            <h3 class="text-3xl md:text-5xl font-black mb-8">
-              Tally Budgeting
-            </h3>
-
-            <div class="space-y-4">
-              <p><span class="font-bold">Status:</span> In Development</p>
-              <p><span class="font-bold">Focus:</span> Budgeting & Finance</p>
-              <p>
-                <span class="font-bold">Description:</span>
-                A budgeting platform focused on helping users track spending and
-                improve financial awareness.
-              </p>
-            </div>
+            <p class="text-gray-500 mb-4">Future project</p>
+            <h3 class="text-3xl md:text-5xl font-black mb-8">Tally Budgeting</h3>
+            <dl>
+              <div class="spec"><dt>Status</dt><dd>In development</dd></div>
+              <div class="spec"><dt>Focus</dt><dd>Budgeting &amp; finance</dd></div>
+              <div class="spec"><dt>Description</dt><dd>A budgeting platform focused on helping users track spending and improve financial awareness.</dd></div>
+            </dl>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NEXT PAGE -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left"
-      >
+    <!-- NEXT -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left reveal">
         <div>
-          <p class="uppercase tracking-[0.3em] text-gray-500">Next Section</p>
-
-          <h2 class="text-3xl md:text-5xl font-black mt-3">RESUME</h2>
+          <p class="text-gray-500 mb-3">Next</p>
+          <h2 class="text-3xl md:text-5xl font-black">RESUME</h2>
         </div>
-
-        <a
-          href="resume.html"
-          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-        >
+        <a href="resume.html" class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300">
           View Resume →
         </a>
       </div>
@@ -474,10 +226,15 @@
     <script>
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+      addEventListener("load", () => document.body.classList.add("loaded"));
+
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }),
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
