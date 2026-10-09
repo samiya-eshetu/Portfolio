@@ -3,287 +3,260 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Contact | Samiya Eshetu</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      body {
-        font-family: "Inter", sans-serif;
-        background: #efefef;
-        overflow-x: hidden;
-      }
+      html { scroll-behavior: smooth; }
+      body { font-family: "Inter", sans-serif; background: #efefef; overflow-x: hidden; }
 
+      .nav-link { position: relative; }
+      .nav-link::after {
+        content: ""; position: absolute; left: 0; bottom: -6px;
+        width: 0; height: 2px; background: #ef4444; transition: 0.3s;
+      }
+      .nav-link:hover::after { width: 100%; }
+
+      /* ============ KINETIC INTRO ============ */
       .hero-title {
-        font-size: clamp(2.8rem, 8vw, 6rem);
-        line-height: 0.88;
+        font-size: clamp(2.6rem, 9.5vw, 8rem);
         font-weight: 900;
         letter-spacing: -0.05em;
       }
-
-      .nav-link {
-        position: relative;
+      .line {
+        position: relative; display: block; overflow: hidden;
+        height: .95em; line-height: .95;
       }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -6px;
-        width: 0;
-        height: 2px;
-        background: #ef4444;
-        transition: 0.3s;
+      /* red block wipes across each line, text appears behind it */
+      .line::after {
+        content: ""; position: absolute; inset: 0; background: #ef4444;
+        transform: scaleX(0); transform-origin: left;
       }
-
-      .nav-link:hover::after {
-        width: 100%;
+      .line .t { display: block; opacity: 0; }
+      .play .line::after { animation: wipe .9s cubic-bezier(.7, 0, .2, 1) var(--wd) forwards; }
+      .play .line .t { animation: show 0s linear calc(var(--wd) + .45s) forwards; }
+      @keyframes wipe {
+        0%   { transform: scaleX(0); transform-origin: left; }
+        49%  { transform: scaleX(1); transform-origin: left; }
+        50%  { transform: scaleX(1); transform-origin: right; }
+        100% { transform: scaleX(0); transform-origin: right; }
       }
+      @keyframes show { to { opacity: 1; } }
 
-      .contact-link {
-        transition: 0.3s;
+      /* rolling word: lands on SOMETHING */
+      .roll-sizer { visibility: hidden; display: block; height: 0; }
+      .roll-col { display: block; }
+      .roll-col span { display: block; height: .95em; }
+      .play .roll-col { animation: roll 2.2s cubic-bezier(.7, 0, .2, 1) 1.15s forwards; }
+      @keyframes roll {
+        0%, 12% { transform: translateY(0); }
+        28%, 40% { transform: translateY(-.95em); }
+        56%, 66% { transform: translateY(-1.9em); }
+        82%, 100% { transform: translateY(-3.8em); }
       }
+      /* keyframe percentages need per-step easing */
+      .play .roll-col { animation-timing-function: cubic-bezier(.7, 0, .2, 1); }
 
-      .contact-link:hover {
-        transform: translateX(8px);
+      .dot {
+        display: inline-block; width: .13em; height: .13em; border-radius: 50%;
+        background: #ef4444; margin-left: .05em; transform: scale(0);
       }
+      .play .dot { animation: pop .6s cubic-bezier(.3, 1.8, .5, 1) 3s forwards; }
+      @keyframes pop { to { transform: scale(1); } }
 
-      input,
-      textarea {
-        background: transparent;
-        outline: none;
+      .after-intro { opacity: 0; }
+      .after-intro.play { animation: fadein .9s ease 3s forwards; }
+      @keyframes fadein { to { opacity: 1; } }
+
+      .rule { height: 2px; background: #111; transform: scaleX(0); transform-origin: left; }
+      .rule.play { animation: draw 1.1s cubic-bezier(.7, 0, .2, 1) 2.8s forwards; }
+      @keyframes draw { to { transform: scaleX(1); } }
+
+      /* ============ CALM REST OF PAGE ============ */
+      .contact-link { transition: transform .3s ease; }
+      .contact-link:hover { transform: translateX(6px); }
+      .contact-link:hover h2 { color: #ef4444; }
+      .contact-link h2 { transition: color .3s; }
+
+      .field { width: 100%; background: transparent; outline: none; border-bottom: 1px solid #9ca3af; padding: 1rem 0; font-size: 1.15rem; transition: border-color .3s; }
+      .field:focus { border-bottom-color: #ef4444; }
+
+      .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+      .reveal.on { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        * { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
+        .line::after { display: none; }
+        .line .t, .after-intro { opacity: 1 !important; animation: none !important; }
+        .roll-col { animation: none !important; transform: translateY(-3.8em); }
+        .dot { animation: none !important; transform: scale(1); }
+        .rule { animation: none !important; transform: scaleX(1); }
       }
     </style>
   </head>
 
   <body>
     <!-- NAVIGATION -->
-
-    <nav
-      class="sticky top-0 z-50 bg-[#efefef]/90 backdrop-blur-md border-b border-gray-300"
-    >
-      <div
-        class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-5 flex justify-between items-center"
-      >
-        <a href="home.html" class="font-bold text-lg sm:text-xl tracking-tight">
-          Samiya Eshetu
-        </a>
-
-        <div class="hidden md:flex gap-8 lg:gap-10 text-sm">
-          <a href="index.html" class="nav-link"> Home </a>
-
-          <a href="about.html" class="nav-link"> About </a>
-
-          <a href="projects.html" class="nav-link"> Projects </a>
-
-          <a href="resume.html" class="nav-link"> Resume </a>
-
-          <a href="contact.html" class="nav-link"> Contact </a>
+    <nav class="sticky top-0 z-50 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center">
+        <a href="index.html" class="font-bold text-lg md:text-xl">Samiya Eshetu</a>
+        <div class="hidden md:flex gap-10">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="resume.html" class="nav-link">Resume</a>
+          <a href="contact.html" class="nav-link text-red-500">Contact</a>
         </div>
-
-        <button id="menuBtn" class="md:hidden text-3xl leading-none">☰</button>
+        <button id="menuBtn" class="md:hidden text-3xl" aria-label="Open menu">☰</button>
       </div>
-
-      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-300">
-        <div class="flex flex-col px-6 py-6 gap-5 text-lg">
-          <a href="index.html"> Home </a>
-
-          <a href="about.html"> About </a>
-
-          <a href="projects.html"> Projects </a>
-
-          <a href="resume.html"> Resume </a>
-
-          <a href="contact.html"> Contact </a>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-300 bg-[#efefef]">
+        <div class="flex flex-col text-center py-4">
+          <a href="index.html" class="py-4 border-b border-gray-200">Home</a>
+          <a href="about.html" class="py-4 border-b border-gray-200">About</a>
+          <a href="projects.html" class="py-4 border-b border-gray-200">Projects</a>
+          <a href="resume.html" class="py-4 border-b border-gray-200">Resume</a>
+          <a href="contact.html" class="py-4 text-red-500">Contact</a>
         </div>
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO: kinetic type intro -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 pt-16 md:pt-24 pb-16 md:pb-20">
+      <h1 class="hero-title play" id="title" aria-label="Let's build something together.">
+        <span class="line" style="--wd: .15s" aria-hidden="true"><span class="t">LET'S BUILD</span></span>
 
-    <section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-20 sm:py-28">
-      <h1 class="hero-title">
-        LET'S BUILD
-        <br />
-        SOMETHING
-        <br />
-        TOGETHER
+        <span class="line" style="--wd: .3s" aria-hidden="true">
+          <span class="t">
+            <span class="roll-sizer">SOMETHING</span>
+            <span class="roll-col">
+              <span>WEBSITES</span>
+              <span>APPS</span>
+              <span>IDEAS</span>
+              <span>STORIES</span>
+              <span>SOMETHING</span>
+            </span>
+          </span>
+        </span>
+
+        <span class="line" style="--wd: .45s" aria-hidden="true"><span class="t">TOGETHER<span class="dot"></span></span></span>
       </h1>
 
-      <p
-        class="mt-8 sm:mt-10 text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed"
-      >
-        Whether you're looking for a developer, have an interesting project, or
-        simply want to connect, I'd love to hear from you.
-      </p>
+      <div class="rule mt-10 md:mt-14" id="rule"></div>
+
+      <div class="after-intro mt-8 md:mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8" id="after">
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl leading-relaxed">
+          Whether you're looking for a developer, have an interesting project, or
+          simply want to connect, I'd love to hear from you.
+        </p>
+        <div class="flex items-center gap-4">
+          <button id="replay" class="text-gray-500 hover:text-black transition" aria-label="Replay intro">↻ Replay</button>
+          <a href="#message" class="bg-black text-white px-8 py-4 rounded-full hover:bg-red-500 transition">Send a message ↓</a>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT INFO -->
-
-    <section
-      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
-    >
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-20 border-t border-gray-300">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 reveal">
         <a href="mailto:samiyaeshetu@gmail.com" class="contact-link">
-          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
-            Email
-          </p>
-
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
-            samiyaeshetu@gmail.com
-          </h2>
+          <p class="text-sm text-gray-500 mb-3">Email</p>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">samiyaeshetu@gmail.com</h2>
         </a>
 
         <a href="tel:+251943044353" class="contact-link">
-          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
-            Phone
-          </p>
-
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold">
-            +251 943 044 353
-          </h2>
+          <p class="text-sm text-gray-500 mb-3">Phone</p>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold">+251 943 044 353</h2>
         </a>
 
-        <a href="https://github.com/samiya-eshetu" class="contact-link">
-          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
-            GitHub
-          </p>
-
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
-            github.com/Samiya-eshetu
-          </h2>
+        <a href="https://github.com/samiya-eshetu" target="_blank" rel="noopener" class="contact-link">
+          <p class="text-sm text-gray-500 mb-3">GitHub</p>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">github.com/Samiya-eshetu</h2>
         </a>
 
-        <a
-          href="https://www.linkedin.com/in/samiya-eshetu"
-          class="contact-link"
-        >
-          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
-            LinkedIn
-          </p>
-
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">
-            linkedin.com/in/Samiya-eshetu
-          </h2>
+        <a href="https://www.linkedin.com/in/samiya-eshetu" target="_blank" rel="noopener" class="contact-link">
+          <p class="text-sm text-gray-500 mb-3">LinkedIn</p>
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold break-words">linkedin.com/in/Samiya-eshetu</h2>
         </a>
       </div>
     </section>
 
     <!-- CONTACT FORM -->
+    <section id="message" class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-20 border-t border-gray-300">
+      <h2 class="text-4xl sm:text-5xl font-black mb-12 reveal">SEND A MESSAGE</h2>
 
-    <section
-      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
-    >
-      <h2 class="text-4xl sm:text-5xl font-black mb-12">SEND A MESSAGE</h2>
-
-      <form
-        action="https://formspree.io/f/mnjyevjy"
-        method="POST"
-        class="max-w-4xl"
-      >
+      <form action="https://formspree.io/f/mnjyevjy" method="POST" class="max-w-4xl reveal">
         <div class="mb-8">
-          <label
-            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
-          >
-            Name
-          </label>
-
-          <input
-            type="text"
-            name="name"
-            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl"
-          />
+          <label for="name" class="block text-sm text-gray-500 mb-1">Name</label>
+          <input id="name" type="text" name="name" required class="field" />
         </div>
 
         <div class="mb-8">
-          <label
-            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
-          >
-            Email
-          </label>
-
-          <input
-            type="email"
-            name="email"
-            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl"
-          />
+          <label for="email" class="block text-sm text-gray-500 mb-1">Email</label>
+          <input id="email" type="email" name="email" required class="field" />
         </div>
 
         <div class="mb-10">
-          <label
-            class="block uppercase tracking-[0.2em] text-xs text-gray-500 mb-3"
-          >
-            Message
-          </label>
-
-          <textarea
-            name="message"
-            rows="5"
-            class="w-full border-b border-gray-400 py-4 text-lg sm:text-xl resize-none"
-          ></textarea>
+          <label for="msg" class="block text-sm text-gray-500 mb-1">Message</label>
+          <textarea id="msg" name="message" rows="5" required class="field resize-none"></textarea>
         </div>
 
-        <button
-          type="submit"
-          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-        >
+        <button type="submit" class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
           Send Message →
         </button>
       </form>
     </section>
 
     <!-- CV -->
-
-    <section
-      class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 border-t border-gray-300"
-    >
-      <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
-      >
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-20 border-t border-gray-300">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left reveal">
         <div>
-          <p class="uppercase tracking-[0.25em] text-xs text-gray-500 mb-3">
-            Resume
-          </p>
-
+          <p class="text-gray-500 mb-2">Resume PDF</p>
           <h2 class="text-4xl sm:text-5xl font-black">DOWNLOAD CV</h2>
         </div>
-
-        <a
-          href="assets/documents/Samiya_Eshetu_2026.pdf"
-          download
-          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition"
-        >
+        <a href="assets/documents/Samiya_Eshetu_2026.pdf" download
+          class="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition">
           Download →
         </a>
       </div>
     </section>
 
     <!-- FOOTER -->
-
     <footer class="border-t border-gray-300">
       <div class="max-w-7xl mx-auto px-5 py-10">
-        <p class="text-center text-gray-500 text-sm">
-          © 2026 Samiya Eshetu. All Rights Reserved.
-        </p>
+        <p class="text-center text-gray-500 text-sm">© 2026 Samiya Eshetu. All Rights Reserved.</p>
       </div>
     </footer>
 
     <script>
       const menuBtn = document.getElementById("menuBtn");
       const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
 
-      menuBtn.onclick = () => {
-        mobileMenu.classList.toggle("hidden");
-      };
+      // replay the intro
+      const title = document.getElementById("title");
+      const rule = document.getElementById("rule");
+      const after = document.getElementById("after");
+      document.getElementById("replay").addEventListener("click", () => {
+        [title, rule, after].forEach((el) => el.classList.remove("play"));
+        void title.offsetWidth;
+        [title, rule, after].forEach((el) => el.classList.add("play"));
+      });
+      rule.classList.add("play");
+      after.classList.add("play");
+
+      // calm scroll fade
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }),
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
