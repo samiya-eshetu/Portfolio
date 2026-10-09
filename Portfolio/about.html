@@ -3,71 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>About | Samiya Eshetu</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
+      body { font-family: "Inter", sans-serif; background: #efefef; }
+      .signature { font-family: "Great Vibes", cursive; }
 
-      body {
-        font-family: "Inter", sans-serif;
-        background: #efefef;
-      }
-
-      .section-title {
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 0.9;
-        font-weight: 900;
-      }
-
-      .nav-link {
-        position: relative;
-      }
-
+      .nav-link { position: relative; }
       .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0;
-        height: 2px;
-        background: #ef4444;
-        transition: 0.3s;
+        content: ""; position: absolute; left: 0; bottom: -4px;
+        width: 0; height: 2px; background: #ef4444; transition: 0.3s;
       }
+      .nav-link:hover::after { width: 100%; }
 
-      .nav-link:hover::after {
-        width: 100%;
+      /* Photo + offset frame: a quiet nod to the landing page's poster/frame */
+      .photo-wrap { position: relative; max-width: 460px; margin-inline: auto; }
+      .photo-wrap::before {
+        content: ""; position: absolute; inset: 0;
+        border: 2px solid #111;
+        transform: translate(18px, 18px);
+        transition: transform 1s cubic-bezier(.2, .7, .2, 1) .3s;
+      }
+      .photo-wrap img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+      .intro .photo-wrap::before { transform: translate(0, 0); }
+
+      /* One gentle entrance, then everything else just fades in */
+      .fade { opacity: 0; transition: opacity .9s ease; }
+      .intro .fade { opacity: 1; }
+      .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+      .reveal.on { opacity: 1; transform: none; }
+
+      .pill { border: 1px solid #9ca3af; border-radius: 999px; padding: .7rem 1.4rem; transition: background .25s, color .25s, border-color .25s; }
+      .pill:hover { background: #111; color: #efefef; border-color: #111; }
+
+      @media (prefers-reduced-motion: reduce) {
+        * { transition-duration: 0.01ms !important; transition-delay: 0s !important; }
       }
     </style>
   </head>
 
   <body>
     <!-- NAVBAR -->
-
-    <nav
-      class="sticky top-0 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300 z-50"
-    >
-      <div
-        class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center"
-      >
-        <a href="index.html" class="font-bold text-lg md:text-xl">
-          Samiya Eshetu
-        </a>
-
-        <!-- Desktop -->
-
+    <nav class="sticky top-0 bg-[#efefef]/95 backdrop-blur-md border-b border-gray-300 z-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-8 py-5 flex justify-between items-center">
+        <a href="index.html" class="font-bold text-lg md:text-xl">Samiya Eshetu</a>
         <div class="hidden md:flex gap-10">
           <a href="index.html" class="nav-link">Home</a>
           <a href="about.html" class="nav-link text-red-500">About</a>
@@ -75,162 +63,90 @@
           <a href="resume.html" class="nav-link">Resume</a>
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
-
-        <!-- Mobile -->
-
-        <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        <button id="menuBtn" class="md:hidden text-3xl" aria-label="Open menu">☰</button>
       </div>
-
-      <!-- Mobile Menu -->
-
-      <div
-        id="mobileMenu"
-        class="hidden md:hidden border-t border-gray-300 bg-[#efefef]"
-      >
+      <div id="mobileMenu" class="hidden md:hidden border-t border-gray-300 bg-[#efefef]">
         <div class="flex flex-col text-center py-4">
-          <a href="index.html" class="py-4 border-b border-gray-200"> Home </a>
-
-          <a href="about.html" class="py-4 border-b border-gray-200"> About </a>
-
-          <a href="projects.html" class="py-4 border-b border-gray-200">
-            Projects
-          </a>
-
-          <a href="resume.html" class="py-4 border-b border-gray-200">
-            Resume
-          </a>
-
-          <a href="contact.html" class="py-4"> Contact </a>
+          <a href="index.html" class="py-4 border-b border-gray-200">Home</a>
+          <a href="about.html" class="py-4 border-b border-gray-200 text-red-500">About</a>
+          <a href="projects.html" class="py-4 border-b border-gray-200">Projects</a>
+          <a href="resume.html" class="py-4 border-b border-gray-200">Resume</a>
+          <a href="contact.html" class="py-4">Contact</a>
         </div>
       </div>
     </nav>
 
     <!-- ABOUT HERO -->
-
-    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24">
-      <h1 class="section-title mb-12 md:mb-16 text-center md:text-left">
-        ABOUT
-      </h1>
-
-      <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-        <!-- IMAGE -->
-
-        <div>
-          <img
-            src="assets/images/me.PNG"
-            alt="Samiya Eshetu"
-            class="w-full h-[420px] md:h-[650px] object-cover rounded-3xl shadow-lg"
-          />
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24" id="intro">
+      <div class="grid lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+        <div class="lg:col-span-5 pr-5 pb-5 fade">
+          <div class="photo-wrap">
+            <img src="assets/images/me.PNG" alt="Samiya Eshetu" />
+          </div>
         </div>
 
-        <!-- CONTENT -->
+        <div class="lg:col-span-7 text-center lg:text-left fade" style="transition-delay: .25s">
+          <p class="text-gray-500 mb-6">About</p>
 
-        <div class="text-center md:text-left">
-          <p class="uppercase tracking-[0.3em] text-gray-500 mb-6">Who I Am</p>
-
-          <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+          <h1 class="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight mb-8">
             Hello, I'm Samiya.
-          </h2>
+          </h1>
 
-          <p class="text-lg md:text-xl text-gray-700 mb-3">
-            Computer Science Student
+          <p class="text-xl md:text-2xl text-gray-700 mb-8">
+            Computer Science graduate and web developer.
           </p>
 
-          <p class="text-lg md:text-xl text-gray-700 mb-10">Web Developer</p>
+          <div class="space-y-5 text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p>
+              I am a Computer Science graduate with a strong interest in web
+              development, software engineering, and creating digital experiences
+              that are both functional and visually appealing.
+            </p>
+            <p>
+              My journey started with HTML and CSS and gradually expanded into
+              JavaScript, Tailwind CSS, Bootstrap, PHP, MySQL, and modern web
+              development practices. I enjoy transforming ideas into real
+              applications and continuously improving my technical skills through
+              personal projects.
+            </p>
+            <p>
+              Currently, I am focused on strengthening my frontend and full-stack
+              development skills, building meaningful applications, and preparing
+              for internship and job opportunities where I can contribute, learn,
+              and grow as a developer.
+            </p>
+          </div>
 
-          <p class="text-gray-600 leading-relaxed mb-6">
-            I am a Computer Science graduate with a strong interest in web
-            development, software engineering, and creating digital experiences
-            that are both functional and visually appealing.
-          </p>
-
-          <p class="text-gray-600 leading-relaxed mb-6">
-            My journey started with HTML and CSS and gradually expanded into
-            JavaScript, Tailwind CSS, Bootstrap, PHP, MySQL, and modern web
-            development practices. I enjoy transforming ideas into real
-            applications and continuously improving my technical skills through
-            personal projects.
-          </p>
-
-          <p class="text-gray-600 leading-relaxed">
-            Currently, I am focused on strengthening my frontend and full-stack
-            development skills, building meaningful applications, and preparing
-            for internship and job opportunities where I can contribute, learn,
-            and grow as a developer.
-          </p>
+          <p class="signature text-red-500 text-5xl mt-8">Samiya Eshetu</p>
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <h2 class="text-4xl md:text-6xl font-black mb-12">SKILLS</h2>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          HTML
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          CSS
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          JavaScript
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          Tailwind CSS
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          Bootstrap
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          PHP
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          MySQL
-        </div>
-
-        <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          Node.js
-        </div>
-                <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          React.js
-        </div>
-                <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          Express.js
-        </div>
-                <div class="border border-gray-400 p-5 md:p-8 rounded-2xl text-center">
-          MongoDB
-        </div>
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <h2 class="text-4xl md:text-6xl font-black mb-12 text-center md:text-left reveal">SKILLS</h2>
+      <div class="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start reveal">
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Tailwind CSS</span>
+        <span class="pill">Bootstrap</span>
+        <span class="pill">PHP</span>
+        <span class="pill">MySQL</span>
+        <span class="pill">Node.js</span>
+        <span class="pill">React.js</span>
+        <span class="pill">Express.js</span>
+        <span class="pill">MongoDB</span>
       </div>
     </section>
 
     <!-- EDUCATION -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <h2 class="text-4xl md:text-6xl font-black mb-12">EDUCATION</h2>
-
-      <div class="max-w-3xl">
-        <p class="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">
-          2026 Graduate
-        </p>
-
-        <h3 class="text-2xl md:text-4xl font-bold mb-4">
-          Bachelor of Science in Computer Science
-        </h3>
-
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <h2 class="text-4xl md:text-6xl font-black mb-12 text-center md:text-left reveal">EDUCATION</h2>
+      <div class="max-w-3xl text-center md:text-left reveal">
+        <p class="text-red-500 font-semibold mb-4">2026 Graduate</p>
+        <h3 class="text-2xl md:text-4xl font-bold mb-4">Bachelor of Science in Computer Science</h3>
         <p class="text-gray-600 text-lg">Unity University</p>
-
         <p class="text-gray-600 mt-6 leading-relaxed">
           Studied software development, databases, algorithms, operating
           systems, networking, and modern web technologies.
@@ -238,40 +154,34 @@
       </div>
     </section>
 
-    <!-- NEXT SECTION -->
-
-    <section
-      class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300"
-    >
-      <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left"
-      >
+    <!-- NEXT -->
+    <section class="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 border-t border-gray-300">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left reveal">
         <div>
-          <p class="text-gray-500 uppercase tracking-[0.3em] mb-3">
-            Next Section
-          </p>
-
+          <p class="text-gray-500 mb-3">Next</p>
           <h2 class="text-3xl md:text-5xl font-black">PROJECTS</h2>
         </div>
-
         <a
           href="projects.html"
-          class="group border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+          class="border border-black px-10 py-5 rounded-full hover:bg-black hover:text-white transition-all duration-300"
         >
-          View Projects
-          <span class="ml-3 group-hover:ml-5 transition-all"> → </span>
+          View Projects →
         </a>
       </div>
     </section>
 
     <script>
       const menuBtn = document.getElementById("menuBtn");
-
       const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
+      addEventListener("load", () => document.getElementById("intro").classList.add("intro"));
+
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }),
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
